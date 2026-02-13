@@ -36,6 +36,7 @@ import donationRouter from "./routes/donation.routes"
 import adminRouter from "./routes/admin.routes"
 import activityRouter from "./routes/activity.routes"
 import watchProgressRouter from "./routes/watchProgress.routes"
+import communityRouter from "./routes/community.routes"
 
 // Routes declaration
 app.use("/api/v1/users", userRouter);
@@ -56,6 +57,7 @@ app.use("/api/v1/donations", donationRouter);
 app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/activity", activityRouter);
 app.use("/api/v1/watch-progress", watchProgressRouter);
+app.use("/api/v1/communities", communityRouter);
 
 // Global Error Handler
 app.use((err: any, req: any, res: any, next: any) => {
