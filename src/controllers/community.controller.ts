@@ -57,7 +57,7 @@ const getCommunityDetails = asyncHandler(async (req: Request, res: Response) => 
     const community = await Community.aggregate([
         {
             $match: {
-                _id: new mongoose.Types.ObjectId(communityId)
+                _id: new mongoose.Types.ObjectId(communityId as string)
             }
         },
         {
