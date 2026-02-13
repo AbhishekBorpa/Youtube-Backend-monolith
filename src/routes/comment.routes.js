@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var comment_controller_1 = require("../controllers/comment.controller");
+var auth_middleware_1 = require("../middlewares/auth.middleware");
+var router = (0, express_1.Router)();
+router.use(auth_middleware_1.verifyJWT);
+router.route("/:videoId").get(comment_controller_1.getVideoComments).post(comment_controller_1.addComment);
+router.route("/c/:commentId").delete(comment_controller_1.deleteComment).patch(comment_controller_1.updateComment);
+router.route("/replies/:commentId").get(comment_controller_1.getCommentReplies);
+router.route("/heart/:commentId").patch(comment_controller_1.toggleCommentHeart);
+router.route("/pin/:commentId").patch(comment_controller_1.pinComment);
+exports.default = router;
